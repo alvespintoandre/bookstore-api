@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Objects;
 
 public class Categoria {
-	
+
 	private Integer id;
 	private String nome;
 	private String descricao;
-	
+
 	private List<Livro> livros = new ArrayList<>();
-	
+
 	public Categoria(Integer id, String nome, String descricao) {
 		super();
 		this.id = id;
@@ -27,23 +27,23 @@ public class Categoria {
 	public Integer getId() {
 		return id;
 	}
-	
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public String getDescricao() {
 		return descricao;
 	}
-	
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
