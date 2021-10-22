@@ -1,14 +1,32 @@
 package com.fmtech.bookstore.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Livro {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
+public class Livro implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
 	private String autor;
 	private String texto;
 
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
 
 	public Livro(Integer id, String titulo, String autor, String texto, Categoria categoria) {
@@ -71,6 +89,14 @@ public class Livro {
 			return false;
 		Livro other = (Livro) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 }
